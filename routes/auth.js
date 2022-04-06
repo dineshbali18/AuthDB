@@ -22,6 +22,10 @@ router.post(
   signin
 );
 
+router.post("/section/add/remainingsubjects",(req,res)=>{
+  console.log(req.body);
+})
+
 router.get("/signout", signout);
 
 module.exports = router;
