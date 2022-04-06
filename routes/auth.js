@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const { check, validationResult } = require("express-validator");
 const { signout, signup, signin, isSignedIn,CheckMobileExists, createPhone } = require("../controllers/auth");
+const User = require("../models/user");
 
 router.post(
   "/signup",
@@ -24,6 +25,15 @@ router.post(
 
 router.post("/section/add/remainingsubjects",(req,res)=>{
   console.log(req.body);
+  User.updateMany({section:req.body.section.s_name},{$push:{remainingSubjects:req.body.subject}}).exec((err,data)=>{
+    if(err){
+      return res.json("error")
+    }
+    else{
+      return res.json(data);
+    }
+  })
+
 })
 
 router.get("/signout", signout);
