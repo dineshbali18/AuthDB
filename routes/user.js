@@ -4,7 +4,8 @@ const router = express.Router();
 const {
   getUserById,
   getUser,
-  updateUser
+  updateUser,
+  getRemainingSubjects
 } = require("../controllers/user");
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 
