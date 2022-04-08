@@ -24,7 +24,7 @@ router.post(
 );
 
 router.post("/section/add/remainingsubjects",(req,res)=>{
-  console.log(req.body);
+  // console.log(req.body);
   User.updateMany({section:req.body.section.s_name},{$push:{remainingSubjects:req.body.subject}}).exec((err,data)=>{
     if(err){
       return res.json("error")
@@ -34,6 +34,16 @@ router.post("/section/add/remainingsubjects",(req,res)=>{
     }
   })
 
+})
+
+
+router.get("/get/remaining/subjects/:userId",(req,res)=>{
+  User.findById({_id:req.body._id}).exec((err,data)=>{
+    if(err){
+      return res.json("error")
+    }
+    res.json(data);
+  })
 })
 
 router.get("/signout", signout);

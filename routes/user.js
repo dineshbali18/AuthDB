@@ -13,6 +13,8 @@ router.param("userId", getUserById);
 router.get("/user/:userId/getuser", isSignedIn, isAuthenticated, getUser);
 router.put("/user/:userId/updateuser", isSignedIn, isAuthenticated, updateUser);
 
+router.get("/section/user/remaining/:userId",getRemainingSubjects);
+
 // router.post("/user/:userId/blockedusers",isSignedIn,isAuthenticated,getBlockedUsers);
 
 

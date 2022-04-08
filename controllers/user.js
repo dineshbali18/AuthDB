@@ -40,4 +40,13 @@ exports.updateUser = (req, res) => {
 };
 
 
-
+exports.getRemainingSubjects=(req,res)=>{
+  User.findById({_id:req.profile._id}).exec((err,data)=>{
+    if(err){
+      return res.json("User remaining sub not found")
+    }
+    else{
+      return res.json(data.remainingSubjects)
+    }
+  })
+}
