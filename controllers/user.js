@@ -50,3 +50,7 @@ exports.getRemainingSubjects=(req,res)=>{
     }
   })
 }
+
+exports.getName=(req,res)=>{
+  return res.json(req.profile.name);
+}
