@@ -52,5 +52,6 @@ exports.getRemainingSubjects=(req,res)=>{
 }
 
 exports.getName=(req,res)=>{
+  console.log(req.profile)
   return res.json(req.profile.name);
 }
